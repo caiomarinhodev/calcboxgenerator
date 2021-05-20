@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'v__n)!sov4v4slvhkevkpok7s+q^t5k42kb#50^kzte_j8o)9v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -52,7 +54,7 @@ ROOT_URLCONF = 'calcbox.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['app/templates',],
+        'DIRS': ['app/templates', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,11 +117,15 @@ STATIC_URL = '/static/'
 
 import os
 
-INSTALLED_APPS += ['rest_framework', 'app',]
-
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+
+FILE_CHARSET = 'UTF-8'
+# STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
